@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevOps Node UI</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f7f9fb;
+      color: #222;
+      scroll-behavior: smooth;
+    }
+    #vanta-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #2a4d7c;
+      margin: 0;
+      text-shadow: 0 2px 16px #b3c6e0;
+    }
+    .deploy-info {
+      background: rgba(255,255,255,0.85);
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 16px #b3c6e0;
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 480px;
+      text-align: center;
+    }
+    .deploy-icons {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .deploy-icons img {
+      width: 48px;
+      height: 48px;
+      filter: drop-shadow(0 2px 8px #b3c6e0);
+      transition: transform 0.2s;
+    }
+    .deploy-icons img:hover {
+      transform: scale(1.15) rotate(-6deg);
+    }
+    #fetchBtn {
+      padding: 1rem 2.5rem;
+      font-size: 1.25rem;
+      border: none;
+      border-radius: 2rem;
+      background: linear-gradient(90deg, #4f8cff 0%, #38c6d9 100%);
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 2px 16px #b3c6e0;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    #fetchBtn:hover {
+      background: linear-gradient(90deg, #38c6d9 0%, #4f8cff 100%);
+      box-shadow: 0 4px 24px #a0d2eb;
+    }
+  </style>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Vanta.js (Globe effect, lighter colors) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+  <!-- Animate.css for SweetAlert2 animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+  <div id="vanta-bg"></div>
+  <section class="section">
+    <h1 class="title">Welcome!</h1>
+    <div class="deploy-info">
+      <h2 style="margin:0 0 0.5rem 0;font-size:1.5rem;color:#2a4d7c;">Deployment Stack</h2>
+      <div class="deploy-icons">
+        <a href="https://cloud.google.com/" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP" title="Google Cloud Platform" /></a>
+        <a href="https://www.jenkins.io/" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins" title="Jenkins" /></a>
+        <a href="https://www.docker.com/" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker" /></a>
+        <a href="https://kubernetes.io/" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" title="Kubernetes" /></a>
+      </div>
+      <p style="margin:0;font-size:1.1rem;line-height:1.6;color:#234;">This app is hosted on <b>GCP (Google Cloud Platform)</b>, using <b>Jenkins</b> for CI/CD, <b>Docker</b> for containerization, and deployed to a <b>Kubernetes</b> cluster.</p>
+    </div>
+    <button id="fetchBtn">Fetch from API</button>
+  </section>
+  <script type="module" src="./main.js"></script>
+</body>
+</html> 
